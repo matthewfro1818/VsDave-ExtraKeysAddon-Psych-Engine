@@ -76,10 +76,10 @@ using StringTools;
 
 class PlayState extends MusicBeatState
 {
-	 static var STRUM_X = 42;
-	 static var STRUM_X_MIDDLESCROLL = -278;
+	  var STRUM_X = 42;
+	  var STRUM_X_MIDDLESCROLL = -278;
 
-	 static var ratingStuff:Array<Dynamic> = [
+	  var ratingStuff:Array<Dynamic> = [
 		['You Suck!', 0.2], //From 0% to 19%
 		['Shit', 0.4], //From 20% to 39%
 		['Bad', 0.5], //From 40% to 49%
@@ -98,8 +98,8 @@ class PlayState extends MusicBeatState
 	 var modchartTexts:Map<String, ModchartText> = new Map<String, ModchartText>();
 	 var modchartSaves:Map<String, FlxSave> = new Map<String, FlxSave>();
 
-	 static var mania:Int = 0;
-	 static var keyAmmount:Int = 4;
+	  var mania:Int = 0;
+	  var keyAmmount:Int = 4;
 
 	//event variables
 	private var isCameraOnForcedPos:Bool = false;
@@ -132,13 +132,13 @@ class PlayState extends MusicBeatState
 	 var dadGroup:FlxTypedSpriteGroup<FlxPerspectiveSprite>;
 	 var trailGroup:FlxTypedSpriteGroup<FlxPerspectiveTrail>;
 	 var gfGroup:FlxSpriteGroup;
-	 static var curStage:String = '';
-	 static var isPixelStage:Bool = false;
-	 static var SONG:SwagSong = null;
-	 static var isStoryMode:Bool = false;
-	 static var storyWeek:Int = 0;
-	 static var storyPlaylist:Array<String> = [];
-	 static var storyDifficulty:Int = 1;
+	  var curStage:String = '';
+	  var isPixelStage:Bool = false;
+	  var SONG:SwagSong = null;
+	  var isStoryMode:Bool = false;
+	  var storyWeek:Int = 0;
+	  var storyPlaylist:Array<String> = [];
+	  var storyDifficulty:Int = 1;
 
 	 var spawnTime:Float = 2000;
 
@@ -164,8 +164,8 @@ class PlayState extends MusicBeatState
 	//Handles the new epic mega sexy cam code that i've done
 	 var camFollow:FlxPoint;
 	 var camFollowPos:FlxObject;
-	private static var prevCamFollow:FlxPoint;
-	private static var prevCamFollowPos:FlxObject;
+	private  var prevCamFollow:FlxPoint;
+	private  var prevCamFollowPos:FlxObject;
 
 	 var renderedStrumLineNotes:FlxTypedGroup<StrumNote>;
 	 var strumLineNotes:FlxTypedGroup<StrumNote>;
@@ -199,8 +199,8 @@ class PlayState extends MusicBeatState
 	 var endingSong:Bool = false;
 	 var startingSong:Bool = false;
 	private var updateTime:Bool = true;
-	 static var changedDifficulty:Bool = false;
-	 static var chartingMode:Bool = false;
+	  var changedDifficulty:Bool = false;
+	  var chartingMode:Bool = false;
 
 	//Gameplay settings
 	 var healthGain:Float = 1;
@@ -272,15 +272,15 @@ class PlayState extends MusicBeatState
 	var timeTxt:FlxText;
 	var scoreTxtTween:FlxTween;
 
-	 static var campaignScore:Int = 0;
-	 static var campaignMisses:Int = 0;
-	 static var seenCutscene:Bool = false;
-	 static var deathCounter:Int = 0;
+	  var campaignScore:Int = 0;
+	  var campaignMisses:Int = 0;
+	  var seenCutscene:Bool = false;
+	  var deathCounter:Int = 0;
 
 	 var defaultCamZoom:Float = 1.05;
 
 	// how big to stretch the pixel art assets
-	 static var daPixelZoom:Float = 6;
+	  var daPixelZoom:Float = 6;
 	private var singAnimations:Array<String> = ['singLEFT', 'singDOWN', 'singUP', 'singRIGHT', 'singUP', 'singLEFT', 'singDOWN', 'singUP', 'singRIGHT'];
 
 	 var inCutscene:Bool = false;
@@ -304,7 +304,7 @@ class PlayState extends MusicBeatState
 	var boyfriendIdled:Bool = false;
 
 	// Lua shit
-	 static var instance:PlayState;
+	  var instance:PlayState;
 	 var luaArray:Array<FunkinLua> = [];
 	private var luaDebugGroup:FlxTypedGroup<DebugLuaText>;
 	 var introSoundsSuffix:String = '';
@@ -318,10 +318,10 @@ class PlayState extends MusicBeatState
 
 	var precacheList:Map<String, String> = new Map<String, String>();
 
-	 static var god:Bool = false;
-	 static var trueDiff:Bool = false;
+	  var god:Bool = false;
+	  var trueDiff:Bool = false;
 	 var chrom:ChromAbEffect = new ChromAbEffect();
-	 static var spawnedWindowThisFrame:Bool = false;
+	  var spawnedWindowThisFrame:Bool = false;
 
 	var bindPopups:Array<FlxText> = [];
 
@@ -339,7 +339,7 @@ class PlayState extends MusicBeatState
 	var nimbiLand:BGSprite;
 	var nimbiSign:BGSprite;
 	var flyingBgChars:FlxTypedGroup<FlyingBGChar> = new FlxTypedGroup<FlyingBGChar>();
-	 static var isGreetingsCutscene:Bool;
+	  var isGreetingsCutscene:Bool;
 	var originalPosition:FlxPoint = new FlxPoint();
 	var daveFlying:Bool;
 	var pressingKey5Global:Bool = false;
@@ -406,8 +406,8 @@ class PlayState extends MusicBeatState
 
 	var rotatingCamTween:FlxTween;
 
-	static var DOWNSCROLL_Y:Float;
-	static var UPSCROLL_Y:Float;
+	 var DOWNSCROLL_Y:Float;
+	 var UPSCROLL_Y:Float;
 
 	var switchSide:Bool;
 
@@ -419,7 +419,7 @@ class PlayState extends MusicBeatState
 	
 	//explpit
 	var expungedBG:BGSprite;
-	 static var scrollType:String;
+	  var scrollType:String;
 	var preDadPos:FlxPoint = new FlxPoint();
 
 	//window stuff
@@ -456,7 +456,7 @@ class PlayState extends MusicBeatState
 
 	var noteWidth:Float = 0;
 
-	 static var shaggyVoice:Bool = false;
+	  var shaggyVoice:Bool = false;
 	var isShaggy:Bool = false;
 	var legs:FlxSprite;
 	var shaggyT:FlxTrail;
@@ -465,12 +465,12 @@ class PlayState extends MusicBeatState
 	var shy:Float;
 	var sh_r:Float = 60;
 
-	 static var globalFunny:CharacterFunnyEffect = CharacterFunnyEffect.None;
+	  var globalFunny:CharacterFunnyEffect = CharacterFunnyEffect.None;
 
 	 var localFunny:CharacterFunnyEffect = CharacterFunnyEffect.None;
 
-	 static var characteroverride:String = "none";
-	 static var formoverride:String = "none";
+	  var characteroverride:String = "none";
+	  var formoverride:String = "none";
 
 	 var dadStrums:FlxTypedGroup<StrumNote>;
 
@@ -483,16 +483,16 @@ class PlayState extends MusicBeatState
 	var notestuffs:Array<String> = ['LEFT', 'DOWN', 'UP', 'RIGHT'];
 	var notestuffsGuitar:Array<String> = ['LEFT', 'DOWN', 'MIDDLE', 'UP', 'RIGHT'];
 
-	 static var curmult:Array<Float> = [1, 1, 1, 1];
-	 static var curmultDefine:Array<Float> = [1, 1, 1, 1];
+	  var curmult:Array<Float> = [1, 1, 1, 1];
+	  var curmultDefine:Array<Float> = [1, 1, 1, 1];
 
 	 var curbg:BGSprite;
 	 var black:BGSprite;
 	 var pre3dSkin:String;
 	#if SHADERS_ENABLED
-	 static var screenshader:Shaders.PulseEffect = new PulseEffect();
-	 static var lazychartshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
-	 static var blockedShader:BlockedGlitchEffect;
+	  var screenshader:Shaders.PulseEffect = new PulseEffect();
+	  var lazychartshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+	  var blockedShader:BlockedGlitchEffect;
 	 var dither:DitherEffect = new DitherEffect();
 	#end
 
@@ -500,7 +500,7 @@ class PlayState extends MusicBeatState
 	var creditsWatermark:FlxText;
 	var songName:FlxText;
 
-	 static var theFunne:Bool = true;
+	  var theFunne:Bool = true;
 	var activateSunTweens:Bool;
 
 	var inFiveNights:Bool = false;
@@ -530,7 +530,7 @@ class PlayState extends MusicBeatState
 
 	var video:MP4Handler;
 	 var modchart:ExploitationModchartType;
-	 static var modchartoption:Bool = true;
+	  var modchartoption:Bool = true;
 	var weirdBG:FlxSprite;
 
 	var mcStarted:Bool = false; 
@@ -545,15 +545,15 @@ class PlayState extends MusicBeatState
 	var AUGHHHH:String;
 	var AHHHHH:String;
 
-	 static var curmult:Array<Float> = [1, 1, 1, 1];
-	 static var curmultDefine:Array<Float> = [1, 1, 1, 1];
+	  var curmult:Array<Float> = [1, 1, 1, 1];
+	  var curmultDefine:Array<Float> = [1, 1, 1, 1];
 
 	 var curbg:BGSprite;
 	 var pre3dSkin:String;
 	#if SHADERS_ENABLED
-	 static var screenshader:Shaders.PulseEffect = new PulseEffect();
-	 static var lazychartshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
-	 static var blockedShader:BlockedGlitchEffect;
+	  var screenshader:Shaders.PulseEffect = new PulseEffect();
+	  var lazychartshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+	  var blockedShader:BlockedGlitchEffect;
 	 var dither:DitherEffect = new DitherEffect();
 	#end
 
@@ -3003,7 +3003,7 @@ class PlayState extends MusicBeatState
 	 var countdownReady:FlxSprite;
 	 var countdownSet:FlxSprite;
 	 var countdownGo:FlxSprite;
-	 static var startOnTime:Float = 0;
+	  var startOnTime:Float = 0;
 
 	 function startCountdown():Void
 	{
@@ -3017,8 +3017,8 @@ class PlayState extends MusicBeatState
 		if(ret != FunkinLua.Function_Stop) {
 			if (skipCountdown || startOnTime > 0) skipArrowStartTween = true;
 
-			generateStaticArrows(0);
-			generateStaticArrows(1);
+			generateArrows(0);
+			generateArrows(1);
 
 			var under:Underlay = new Underlay(currentPlayerStrums);
 			insert(0, under);
@@ -3669,7 +3669,7 @@ class PlayState extends MusicBeatState
 
 	 var skipArrowStartTween:Bool = false; //for lua
 
-	private function generateStaticArrows(player:Int, regenerate:Bool = false, fadeIn:Bool = true):Void
+	private function generateArrows(player:Int, regenerate:Bool = false, fadeIn:Bool = true):Void
 	{
 		var note_order:Array<Int> = [0,1,2,3];
 		if (mania == 1) note_order = [0, 1, 2, 3, 4];
@@ -3718,7 +3718,7 @@ class PlayState extends MusicBeatState
 			babyArrow.x += 78 + 78 / 4; // playerStrumAmount
 			babyArrow.x += ((FlxG.width / 2) * player);
 			babyArrow.x -= Note.posRest[mania];
-			babyArrow.playAnim('static');
+			babyArrow.playAnim('');
 			
 			babyArrow.baseX = babyArrow.x;
 			if (player == 1)
@@ -3750,7 +3750,7 @@ class PlayState extends MusicBeatState
 			strumLineNotes.add(babyArrow);
 		}
 	}
-	function regenerateStaticArrows(player:Int, fadeIn = true)
+	function regenerateArrows(player:Int, fadeIn = true)
 	{
 		switch (player)
 		{
@@ -3771,7 +3771,7 @@ class PlayState extends MusicBeatState
 					spr.destroy();
 				});
 		}
-		generateStaticArrows(player, false, fadeIn);
+		generateArrows(player, false, fadeIn);
 	}
 
 	function tweenCamIn():Void
@@ -5584,7 +5584,7 @@ class PlayState extends MusicBeatState
 								sprite.playAnim('confirm', true);
 								sprite.animation.finishCallback = function(name:String)
 								{
-									sprite.playAnim('static', true);
+									sprite.playAnim('', true);
 								}
 							} else {
 								sprite.animation.play('confirm', true);
@@ -5600,7 +5600,7 @@ class PlayState extends MusicBeatState
 								}
 								sprite.animation.finishCallback = function(name:String)
 								{
-									sprite.animation.play('static', true);
+									sprite.animation.play('', true);
 									sprite.centerOffsets();
 								}
 							}
@@ -6969,7 +6969,7 @@ class PlayState extends MusicBeatState
 			var spr:StrumNote = currentPlayerStrums.members[key];
 			if(spr != null)
 			{
-				spr.playAnim('static');
+				spr.playAnim('');
 				spr.resetAnim = 0;
 			}
 			controlHoldArray[key] = false;
@@ -7745,7 +7745,7 @@ class PlayState extends MusicBeatState
 	{
 		return defaultCamZoom;
 	}
-	 static function resetShader()
+	  function resetShader()
 	{
 		PlayState.instance.shakeCam = false;
 		PlayState.instance.camZooming = false;
@@ -8170,7 +8170,7 @@ class PlayState extends MusicBeatState
 		super.destroy();
 	}
 
-	 static function cancelMusicFadeTween() {
+	  function cancelMusicFadeTween() {
 		if(FlxG.sound.music.fadeTween != null) {
 			FlxG.sound.music.fadeTween.cancel();
 		}
@@ -8468,7 +8468,7 @@ class PlayState extends MusicBeatState
 					case 640:
 						defaultCamZoom = 1.1;
 					case 660 | 680:
-						FlxG.sound.play(Paths.sound('static'), 0.1);
+						FlxG.sound.play(Paths.sound(''), 0.1);
 						dad.visible = false;
 						dadmirror.visible = true;
 						curbg.visible = true;
@@ -8483,7 +8483,7 @@ class PlayState extends MusicBeatState
 						dad.playAnim('um', true);
 
 					case 1176:
-						FlxG.sound.play(Paths.sound('static'), 0.1);
+						FlxG.sound.play(Paths.sound(''), 0.1);
 						dad.visible = false;
 						dadmirror.visible = true;
 						curbg.loadGraphic(Paths.image('backgrounds/void/redsky', 'shared'));
@@ -8567,7 +8567,7 @@ class PlayState extends MusicBeatState
 						FlxG.camera.flash(FlxColor.WHITE, 0.25);
 						switchDad('dave-festival', dad.getPosition(), false);
 
-						regenerateStaticArrows(0);
+						regenerateArrows(0);
 						
 						var color = getBackgroundColor(curStage);
 
@@ -8971,7 +8971,7 @@ class PlayState extends MusicBeatState
 					case 12, 18, 23:
 						blackScreen.alpha = 1;
 						FlxTween.tween(blackScreen, {alpha: 0}, Conductor.crochet / 1000);
-						FlxG.sound.play(Paths.sound('static'), 0.5);
+						FlxG.sound.play(Paths.sound(''), 0.5);
 
 						creditsPopup.switchHeading({path: 'songHeadings/glitchHeading', antiAliasing: false, animation: 
 						new Animation('glitch', 'glitchHeading', 24, true, [false, false]), iconOffset: 0});
@@ -9276,7 +9276,7 @@ class PlayState extends MusicBeatState
 							}
 							FlxTween.tween(blackFront, {alpha: 0}, 0.5);
 						}});
-						regenerateStaticArrows(0);
+						regenerateArrows(0);
 
 						defaultCamZoom += 0.2;
 						#if SHADERS_ENABLED
@@ -9988,11 +9988,11 @@ class PlayState extends MusicBeatState
 							{
 								repositionChar(char);
 							}
-							regenerateStaticArrows(0);
+							regenerateArrows(0);
 						}
 						else
 						{
-							FlxG.sound.play(Paths.sound('static'), 0.1);
+							FlxG.sound.play(Paths.sound(''), 0.1);
 							curbg.loadGraphic(Paths.image('backgrounds/void/redsky', 'shared'));
 							curbg.alpha = 1;
 							curbg.visible = true;
