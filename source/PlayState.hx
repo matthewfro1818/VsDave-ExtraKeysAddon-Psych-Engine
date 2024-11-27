@@ -329,6 +329,11 @@ class PlayState extends MusicBeatState
 	var shy:Float;
 	var sh_r:Float = 60;
 
+	var funnyFloatyBoys:Array<String> = ['dave-angey', 'bambi-3d', 'expunged', 'bambi-unfair', 'exbungo', 'dave-festival-3d', 'dave-3d-recursed', 'bf-3d'];
+
+	public static var characteroverride:String = "none";
+	public static var formoverride:String = "none";
+
 	override public function create()
 	{
 		Paths.clearStoredMemory();
