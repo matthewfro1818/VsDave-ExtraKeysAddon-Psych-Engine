@@ -253,9 +253,14 @@ class Note extends FlxPerspectiveSprite
 		if(!inEditor) this.strumTime += ClientPrefs.noteOffset;
 
 		this.noteData = noteData;
-		if (((CharactersWith3D.contains(PlayState.SONG.player2) && !musthit) || (CharactersWith3D.contains(PlayState.SONG.player1) && musthit) && (this.strumTime / 50) % 20 > 10) && this.noteType == default)
+
+		if ((((CharactersWith3D.contains(PlayState.SONG.player2) && !musthit) || ((CharactersWith3D.contains(PlayState.SONG.player1)
+				|| CharactersWith3D.contains(PlayState.characteroverride) || CharactersWith3D.contains(PlayState.formoverride)) && musthit))
+				|| ((CharactersWith3D.contains(PlayState.SONG.player2) || CharactersWith3D.contains(PlayState.SONG.player1)) && ((this.strumTime / 50) % 20 > 10)))
+				&& this.noteStyle == 'normal')
 		{
-		    reloadNote('3D');
+			this.noteStyle = '3D';
+			notePathLol = 'notes/NOTE_assets_3D';
 		}
 
 		if (daNote.mustPress && (Conductor.songPosition >= this.strumTime) && this.health != 2 && this.noteType == 'phone')
