@@ -469,8 +469,8 @@ class PlayState extends MusicBeatState
 
 	 var localFunny:CharacterFunnyEffect = CharacterFunnyEffect.None;
 
-	  var character:String = "none";
-	  var form:String = "none";
+	  var characteroverride:String = "none";
+	  var formoverride:String = "none";
 
 	 var dadStrums:FlxTypedGroup<StrumNote>;
 
@@ -602,11 +602,11 @@ class PlayState extends MusicBeatState
 		dadStrumAmount = Main.keyAmmo[mania];
 		playerStrumAmount = Main.keyAmmo[mania];
 
-		if (form == 'supershaggy') {
+		if (formoverride== 'supershaggy') {
 			shaggyT = new FlxTrail(boyfriend, null, 3, 6, 0.3, 0.002);
 			bfTrailGroup.add(shaggyT);
 		}
-		if (form == 'godshaggy') {
+		if (formoverride== 'godshaggy') {
 			legs = new FlxSprite(-850, -850);
 			legs.frames = Paths.getSparrowAtlas('characters/shaggy_god', 'shared');
 			legs.animation.addByPrefix('legs', "solo_legs", 30);
@@ -1622,7 +1622,7 @@ class PlayState extends MusicBeatState
 				tristanInBotTrot.setGraphicSize(Std.int(tristanInBotTrot.width * 0.8));
 				tristanInBotTrot.animation.play('idle');
 				add(tristanInBotTrot);
-				if (form == 'tristan' || form == 'tristan-golden' || form == 'tristan-golden-glowing') {
+				if (formoverride== 'tristan' || formoverride== 'tristan-golden' || formoverride== 'tristan-golden-glowing') {
 					remove(tristanInBotTrot);	
 			    }
 			case 'office':
@@ -2564,7 +2564,7 @@ class PlayState extends MusicBeatState
 			return;
 		}
 		#else
-		FlxG.log.warn('Platform not supported!');
+		FlxG.log.warn('Platformoverridenot supported!');
 		startAndEnd();
 		return;
 		#end
@@ -7480,7 +7480,7 @@ class PlayState extends MusicBeatState
 
 		}
 		#end
-		var deathSkinCheck = form == "bf" || form == "none" ? SONG.player1 : isRecursed ? boyfriend.curCharacter : form;
+		var deathSkinCheck = formoverride== "bf" || formoverride== "none" ? SONG.player1 : isRecursed ? boyfriend.curCharacter : form;
 		var chance = FlxG.random.int(0, 99);
 		if (chance <= 2 && eyesoreson)
 		{
@@ -7697,11 +7697,11 @@ class PlayState extends MusicBeatState
 		switchDad('playrobot-shadow', dad.getPosition(), true, false);
 		tristanInBotTrot.animation.play('idleNight');
 		
-		if (form != 'tristan-golden') {
+		if (formoverride!= 'tristan-golden') {
 		    boyfriend.color = getBackgroundColor(curStage);
 		}
 
-		if (form == 'tristan-golden' || form == 'tristan-golden-glowing') {
+		if (formoverride== 'tristan-golden' || formoverride== 'tristan-golden-glowing') {
 			boyfriend.color = FlxColor.WHITE;
             switchBF('tristan-golden-glowing', boyfriend.getPosition(), true, true);
 		}
@@ -8572,7 +8572,7 @@ class PlayState extends MusicBeatState
 						var color = getBackgroundColor(curStage);
 
 						FlxTween.color(dad, 0.6, dad.color, color);
-						if (form != 'tristan-golden-glowing')
+						if (formoverride!= 'tristan-golden-glowing')
 						{
 							FlxTween.color(boyfriend, 0.6, boyfriend.color, color);
 						}
