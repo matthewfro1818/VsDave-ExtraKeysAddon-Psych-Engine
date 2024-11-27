@@ -10406,7 +10406,7 @@ class PlayState extends MusicBeatState
 
 	var curLight:Int = -1;
 	var curLightEvent:Int = -1;
-}
+						
 enum ExploitationModchartType
 {
 	None; Cheating; Figure8; ScrambledNotes; Cyclone; Unfairness; Jitterwave; PingPong; Sex;
@@ -10415,4 +10415,5 @@ enum ExploitationModchartType
 enum CharacterFunnyEffect
 {
 	None; Dave; Bambi; Tristan; Exbungo; Recurser; Shaggy;
+}
 }
