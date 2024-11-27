@@ -123,6 +123,8 @@ class Note extends FlxPerspectiveSprite
 	public static var ammoToMania:Array<Int> = [0, 6, 7, 8, 0, 3, 1, 4, 5, 2, 9, 10];
 	public static var mania:Int = 0;
 
+	var notePathLol:String = 'notes/NOTE_assets';
+	
 	private function set_multSpeed(value:Float):Float {
 		resizeByRatio(value / multSpeed);
 		multSpeed = value;
