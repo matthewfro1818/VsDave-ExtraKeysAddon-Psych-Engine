@@ -667,6 +667,35 @@ class Note extends FlxPerspectiveSprite
 		}
 	}
 
+	public function SearchForStrum(musthit:Bool)
+	{
+		var state:PlayState = cast(FlxG.state, PlayState);
+		if (musthit)
+		{
+			state.playerStrums.forEach(function(spr:StrumNote)
+			{
+				if (spr.ID == notetolookfor)
+				{
+					GoToStrum(spr);
+					MyStrum = spr;
+					return;
+				}
+			});
+		}
+		else
+		{
+			state.dadStrums.forEach(function(spr:StrumNote)
+			{
+				if (spr.ID == notetolookfor)
+				{
+					GoToStrum(spr);
+					MyStrum = spr;
+					return;
+				}
+			});
+		}
+	}
+
 	public static function checkMustPress(mustPress:Bool):Bool 
 	{
 		if ((mustPress && !ClientPrefs.getGameplaySetting('opponentplay', false)) || (!mustPress && ClientPrefs.getGameplaySetting('opponentplay', false)))
