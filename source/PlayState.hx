@@ -469,8 +469,8 @@ class PlayState extends MusicBeatState
 
 	 var localFunny:CharacterFunnyEffect = CharacterFunnyEffect.None;
 
-	  var characteroverride:String = "none";
-	  var formoverride:String = "none";
+	  var character:String = "none";
+	  var form:String = "none";
 
 	 var dadStrums:FlxTypedGroup<StrumNote>;
 
@@ -567,7 +567,7 @@ class PlayState extends MusicBeatState
 
 	 var exbungo_funny:FlxSound;
 
-	override  function create()
+	  function create()
 	{
 		Paths.clearStoredMemory();
 
@@ -602,11 +602,11 @@ class PlayState extends MusicBeatState
 		dadStrumAmount = Main.keyAmmo[mania];
 		playerStrumAmount = Main.keyAmmo[mania];
 
-		if (formoverride == 'supershaggy') {
+		if (form == 'supershaggy') {
 			shaggyT = new FlxTrail(boyfriend, null, 3, 6, 0.3, 0.002);
 			bfTrailGroup.add(shaggyT);
 		}
-		if (formoverride == 'godshaggy') {
+		if (form == 'godshaggy') {
 			legs = new FlxSprite(-850, -850);
 			legs.frames = Paths.getSparrowAtlas('characters/shaggy_god', 'shared');
 			legs.animation.addByPrefix('legs', "solo_legs", 30);
@@ -1622,7 +1622,7 @@ class PlayState extends MusicBeatState
 				tristanInBotTrot.setGraphicSize(Std.int(tristanInBotTrot.width * 0.8));
 				tristanInBotTrot.animation.play('idle');
 				add(tristanInBotTrot);
-				if (formoverride == 'tristan' || formoverride == 'tristan-golden' || formoverride == 'tristan-golden-glowing') {
+				if (form == 'tristan' || form == 'tristan-golden' || form == 'tristan-golden-glowing') {
 					remove(tristanInBotTrot);	
 			    }
 			case 'office':
@@ -3779,7 +3779,7 @@ class PlayState extends MusicBeatState
 		FlxTween.tween(FlxG.camera, {zoom: 1.3}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.sineInOut});
 	}
 
-	override function openSubState(SubState:FlxSubState)
+	 function openSubState(SubState:FlxSubState)
 	{
 		if (paused)
 		{
@@ -3837,7 +3837,7 @@ class PlayState extends MusicBeatState
 	}
 
 
-	override function closeSubState()
+	 function closeSubState()
 	{
 		if (paused)
 		{
@@ -3886,7 +3886,7 @@ class PlayState extends MusicBeatState
 		super.closeSubState();
 	}
 
-	override  function onFocus():Void
+	  function onFocus():Void
 	{
 		#if desktop
 		if (health > 0 && !paused)
@@ -3905,7 +3905,7 @@ class PlayState extends MusicBeatState
 		super.onFocus();
 	}
 
-	override  function onFocusLost():Void
+	  function onFocusLost():Void
 	{
 		#if desktop
 		if (health > 0 && !paused)
@@ -3946,7 +3946,7 @@ class PlayState extends MusicBeatState
 	var canPause:Bool = true;
 	var limoSpeed:Float = 0;
 
-	override  function update(elapsed:Float)
+	  function update(elapsed:Float)
 	{
 		/*if (FlxG.keys.justPressed.NINE)
 		{
@@ -7480,7 +7480,7 @@ class PlayState extends MusicBeatState
 
 		}
 		#end
-		var deathSkinCheck = formoverride == "bf" || formoverride == "none" ? SONG.player1 : isRecursed ? boyfriend.curCharacter : formoverride;
+		var deathSkinCheck = form == "bf" || form == "none" ? SONG.player1 : isRecursed ? boyfriend.curCharacter : form;
 		var chance = FlxG.random.int(0, 99);
 		if (chance <= 2 && eyesoreson)
 		{
@@ -7697,11 +7697,11 @@ class PlayState extends MusicBeatState
 		switchDad('playrobot-shadow', dad.getPosition(), true, false);
 		tristanInBotTrot.animation.play('idleNight');
 		
-		if (formoverride != 'tristan-golden') {
+		if (form != 'tristan-golden') {
 		    boyfriend.color = getBackgroundColor(curStage);
 		}
 
-		if (formoverride == 'tristan-golden' || formoverride == 'tristan-golden-glowing') {
+		if (form == 'tristan-golden' || form == 'tristan-golden-glowing') {
 			boyfriend.color = FlxColor.WHITE;
             switchBF('tristan-golden-glowing', boyfriend.getPosition(), true, true);
 		}
@@ -8152,7 +8152,7 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	override function destroy() {
+	 function destroy() {
 		for (lua in luaArray) {
 			lua.call('onDestroy', []);
 			lua.stop();
@@ -8178,7 +8178,7 @@ class PlayState extends MusicBeatState
 	}
 
 	var lastStepHit:Int = -1;
-	override function stepHit()
+	 function stepHit()
 	{
 		super.stepHit();
 		super.stepHit();
@@ -8572,7 +8572,7 @@ class PlayState extends MusicBeatState
 						var color = getBackgroundColor(curStage);
 
 						FlxTween.color(dad, 0.6, dad.color, color);
-						if (formoverride != 'tristan-golden-glowing')
+						if (form != 'tristan-golden-glowing')
 						{
 							FlxTween.color(boyfriend, 0.6, boyfriend.color, color);
 						}
@@ -9585,7 +9585,7 @@ class PlayState extends MusicBeatState
 
 	var lastBeatHit:Int = -1;
 
-	override function beatHit()
+	 function beatHit()
 	{
 		super.beatHit();
 
@@ -10161,7 +10161,7 @@ class PlayState extends MusicBeatState
 		callOnLuas('onBeatHit', []);
 	}
 
-	override function sectionHit()
+	 function sectionHit()
 	{
 		super.sectionHit();
 
@@ -10415,51 +10415,4 @@ enum ExploitationModchartType
 enum CharacterFunnyEffect
 {
 	None; Dave; Bambi; Tristan; Exbungo; Recurser; Shaggy;
-}
-
-class Underlay extends FlxSprite
-{
-	var strumGroup:FlxTypedGroup<StrumNote>;
-	 var isPlayer:Bool = false;
-	override  function new(strumGroup:FlxTypedGroup<StrumNote>)
-	{
-		super(0,-1000);
-		this.strumGroup = strumGroup;
-		makeGraphic(1,3000, FlxColor.BLACK);
-		this.scrollFactor.set();
-		this.cameras = [PlayState.instance.camHUD];
-	}
-	override function update(elapsed:Float)
-	{
-		
-		this.x = strumGroup.members[0].x;
-		this.alpha = ClientPrefs.underlayAlpha;
-		this.visible = true;
-
-		if (strumGroup.members[0].alpha == 0 || !strumGroup.members[0].visible)
-			this.visible = false;
-
-
-
-		if (this.visible)
-		{
-			for (i in 0...strumGroup.members.length)
-			{
-				if (strumGroup.members[i].curID == Note.keyAmmo[strumGroup.members[i].curMania]-1)
-				{
-					
-					this.width = (strumGroup.members[i].get_inWorldX() + (strumGroup.members[i].get_inWorldScaleX()*160)) - strumGroup.members[0].get_inWorldX();
-					setGraphicSize(Std.int(width), 3000);
-					updateHitbox();
-					//break;
-				}
-			}
-		}
-		if (width < 50)
-			this.visible = false;
-
-
-		
-		super.update(elapsed);
-	}
 }
