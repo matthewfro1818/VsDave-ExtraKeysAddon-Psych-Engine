@@ -127,6 +127,15 @@ class Note extends FlxPerspectiveSprite
 	public static var mania:Int = 0;
 
 	var notePathLol:String = 'notes/NOTE_assets';
+
+	public static var swagWidth:Float = 160 * 0.7;
+	public static var noteSize:Float = 0.7;
+	public static var PURP_NOTE:Int = 0;
+	public static var GREEN_NOTE:Int = 2;
+	public static var BLUE_NOTE:Int = 1;
+	public static var RED_NOTE:Int = 3;
+
+	public var LocalScrollSpeed:Float = 1;
 	
 	private function set_multSpeed(value:Float):Float {
 		resizeByRatio(value / multSpeed);
