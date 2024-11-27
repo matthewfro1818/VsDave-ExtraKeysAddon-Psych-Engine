@@ -362,6 +362,30 @@ class PlayState extends MusicBeatState
 			];
 		}
 
+		if (boyfriend.curCharacter == 'supershaggy') {
+			shaggyT = new FlxTrail(boyfriend, null, 3, 6, 0.3, 0.002);
+			bfTrailGroup.add(shaggyT);
+		}
+		if (boyfriend.curCharacter == 'godshaggy') {
+			legs = new FlxSprite(-850, -850);
+			legs.frames = Paths.getSparrowAtlas('characters/shaggy_god', 'shared');
+			legs.animation.addByPrefix('legs', "solo_legs", 30);
+			legs.animation.play('legs');
+			legs.antialiasing = true;
+			legs.flipX = true;
+			legs.updateHitbox();
+			legs.offset.set(legs.frameWidth / 2, 10);
+			legs.alpha = 0;
+
+			legT = new FlxTrail(legs, null, 5, 7, 0.3, 0.001);
+			bfTrailGroup.add(legT);
+
+			shaggyT = new FlxTrail(boyfriend, null, 5, 7, 0.3, 0.001);
+			bfTrailGroup.add(shaggyT);
+
+			boyfriendGroup.add(legs);
+		}
+
 		//Ratings
 		ratingsData.push(new Rating('sick')); //default rating
 
@@ -2914,7 +2938,40 @@ class PlayState extends MusicBeatState
 			chrom.strength = FlxMath.lerp(chrom.strength, 0, elapsed*10);
 			chrom.update(elapsed);
 		}
-		
+
+		if (shaggyT != null) {
+			shaggyT.color = boyfriend.color;
+			shaggyT.visible = boyfriend.alpha >= 0.5;
+		}
+		if (boyfriend.curCharacter == 'godshaggy') {
+			legs.color = boyfriend.color;
+			legT.color = boyfriend.color;
+
+			var rotRateSh = curStep / 9.5;
+			var sh_toy = shy + -Math.sin(rotRateSh * 2) * sh_r * 0.45;
+			var sh_tox = shx -Math.cos(rotRateSh) * sh_r;
+			boyfriend.x += (sh_tox - boyfriend.x) / 12;
+			boyfriend.y += (sh_toy - boyfriend.y) / 12;
+
+			if (boyfriend.animation.name == 'idle')
+			{
+				var pene = 0.07;
+				boyfriend.angle = Math.sin(rotRateSh) * sh_r * pene / 4;
+
+				legs.alpha = boyfriend.alpha;
+				legT.visible = boyfriend.alpha >= 0.5;
+				legs.angle = Math.sin(rotRateSh) * sh_r * pene;
+
+				legs.x = boyfriend.x + 150 + Math.cos((legs.angle + 90) * (Math.PI/180)) * 150;
+				legs.y = boyfriend.y + 300 + Math.sin((legs.angle + 90) * (Math.PI/180)) * 150;
+			}
+			else
+			{
+				boyfriend.angle = 0;
+				legs.alpha = 0;
+				legT.visible = false;
+			}
+		}
 
 		switch (curStage)
 		{
