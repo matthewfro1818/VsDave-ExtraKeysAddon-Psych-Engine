@@ -70,6 +70,8 @@ import sys.FileSystem;
 import vlc.MP4Handler;
 #end
 
+import Shaders;
+
 using StringTools;
 
 class PlayState extends MusicBeatState
