@@ -4576,13 +4576,221 @@ class PlayState extends MusicBeatState
 	// Hold notes
 	var controlHoldArray:Array<Bool> = [false, false, false, false];
 
+	var upHold:Bool = false;
+	var downHold:Bool = false;
+	var rightHold:Bool = false;
+	var leftHold:Bool = false;
+	var centerHold:Bool = false;
+
+	var l1Hold:Bool = false;
+	var uHold:Bool = false;
+	var r1Hold:Bool = false;
+	var l2Hold:Bool = false;
+	var dHold:Bool = false;
+	var r2Hold:Bool = false;
+
+	var a0Hold:Bool = false;
+	var a1Hold:Bool = false;
+	var a2Hold:Bool = false;
+	var a3Hold:Bool = false;
+	var a4Hold:Bool = false;
+	var a5Hold:Bool = false;
+	var a6Hold:Bool = false;
+
+	var n0Hold:Bool = false;
+	var n1Hold:Bool = false;
+	var n2Hold:Bool = false;
+	var n3Hold:Bool = false;
+	var n4Hold:Bool = false;
+	var n5Hold:Bool = false;
+	var n6Hold:Bool = false;
+	var n7Hold:Bool = false;
+	var n8Hold:Bool = false;
+
+	var t0Hold:Bool = false;
+	var t1Hold:Bool = false;
+	var t2Hold:Bool = false;
+	var t3Hold:Bool = false;
+	var t4Hold:Bool = false;
+	var t5Hold:Bool = false;
+	var t6Hold:Bool = false;
+	var t7Hold:Bool = false;
+	var t8Hold:Bool = false;
+	var t9Hold:Bool = false;
+	var t10Hold:Bool = false;
+	var t11Hold:Bool = false;
+
 	private function keyShit():Void
 	{
 		// HOLDING
-		var up = controls.NOTE_UP;
-		var right = controls.NOTE_RIGHT;
-		var down = controls.NOTE_DOWN;
-		var left = controls.NOTE_LEFT;
+		var up = controls.UP;
+		var right = controls.RIGHT;
+		var down = controls.DOWN;
+		var left = controls.LEFT;
+		var center = controls.CENTER;
+
+		var upP = controls.UP_P;
+		var rightP = controls.RIGHT_P;
+		var downP = controls.DOWN_P;
+		var leftP = controls.LEFT_P;
+		var centerP = controls.CENTER_P;
+
+		var upR = controls.UP_R;
+		var rightR = controls.RIGHT_R;
+		var downR = controls.DOWN_R;
+		var leftR = controls.LEFT_R;
+		var centerR = controls.CENTER_R;
+
+		var l1 = controls.L1;
+		var u = controls.U1;
+		var r1 = controls.R1;
+		var l2 = controls.L2;
+		var d = controls.D1;
+		var r2 = controls.R2;
+
+		var l1P = controls.L1_P;
+		var uP = controls.U1_P;
+		var r1P = controls.R1_P;
+		var l2P = controls.L2_P;
+		var dP = controls.D1_P;
+		var r2P = controls.R2_P;
+
+		var l1R = controls.L1_R;
+		var uR = controls.U1_R;
+		var r1R = controls.R1_R;
+		var l2R = controls.L2_R;
+		var dR = controls.D1_R;
+		var r2R = controls.R2_R;
+
+		var a0 = controls.A0;
+		var a1 = controls.A1;
+		var a2 = controls.A2;
+		var a3 = controls.A3;
+		var a4 = controls.A4;
+		var a5 = controls.A5;
+		var a6 = controls.A6;
+
+		var a0P = controls.A0_P;
+		var a1P = controls.A1_P;
+		var a2P = controls.A2_P;
+		var a3P = controls.A3_P;
+		var a4P = controls.A4_P;
+		var a5P = controls.A5_P;
+		var a6P = controls.A6_P;
+
+		var a0R = controls.A0_R;
+		var a1R = controls.A1_R;
+		var a2R = controls.A2_R;
+		var a3R = controls.A3_R;
+		var a4R = controls.A4_R;
+		var a5R = controls.A5_R;
+		var a6R = controls.A6_R;
+
+		var n0 = controls.N0;
+		var n1 = controls.N1;
+		var n2 = controls.N2;
+		var n3 = controls.N3;
+		var n4 = controls.N4;
+		var n5 = controls.N5;
+		var n6 = controls.N6;
+		var n7 = controls.N7;
+		var n8 = controls.N8;
+
+		var n0P = controls.N0_P;
+		var n1P = controls.N1_P;
+		var n2P = controls.N2_P;
+		var n3P = controls.N3_P;
+		var n4P = controls.N4_P;
+		var n5P = controls.N5_P;
+		var n6P = controls.N6_P;
+		var n7P = controls.N7_P;
+		var n8P = controls.N8_P;
+
+		var n0R = controls.N0_R;
+		var n1R = controls.N1_R;
+		var n2R = controls.N2_R;
+		var n3R = controls.N3_R;
+		var n4R = controls.N4_R;
+		var n5R = controls.N5_R;
+		var n6R = controls.N6_R;
+		var n7R = controls.N7_R;
+		var n8R = controls.N8_R;
+
+		var t0 = controls.T0;
+		var t1 = controls.T1;
+		var t2 = controls.T2;
+		var t3 = controls.T3;
+		var t4 = controls.T4;
+		var t5 = controls.T5;
+		var t6 = controls.T6;
+		var t7 = controls.T7;
+		var t8 = controls.T8;
+		var t9 = controls.T9;
+		var t10 = controls.T10;
+		var t11 = controls.T11;
+
+		var t0P = controls.T0_P;
+		var t1P = controls.T1_P;
+		var t2P = controls.T2_P;
+		var t3P = controls.T3_P;
+		var t4P = controls.T4_P;
+		var t5P = controls.T5_P;
+		var t6P = controls.T6_P;
+		var t7P = controls.T7_P;
+		var t8P = controls.T8_P;
+		var t9P = controls.T9_P;
+		var t10P = controls.T10_P;
+		var t11P = controls.T11_P;
+
+		var t0R = controls.T0_R;
+		var t1R = controls.T1_R;
+		var t2R = controls.T2_R;
+		var t3R = controls.T3_R;
+		var t4R = controls.T4_R;
+		var t5R = controls.T5_R;
+		var t6R = controls.T6_R;
+		var t7R = controls.T7_R;
+		var t8R = controls.T8_R;
+		var t9R = controls.T9_R;
+		var t10R = controls.T10_R;
+		var t11R = controls.T11_R;
+
+		var key5 = controls.KEY5 && ((SONG.song.toLowerCase() == 'polygonized' || SONG.song.toLowerCase() == 'interdimensional') && localFunny != CharacterFunnyEffect.Recurser);
+
+		/*if (pressingKey5Global != key5)
+		{
+			pressingKey5Global = key5;
+			regenerateStaticArrows(1, false);
+		}*/
+		var controlArray:Array<Bool> = [leftP, downP, upP, rightP];
+		var releaseArray:Array<Bool> = [leftR, downR, upR, rightR];
+		if (mania == 1) {
+			controlArray = [leftP, downP, centerP, upP, rightP];
+			releaseArray = [leftR, downR, centerR, upR, rightR];
+		}
+		if (mania == 2) {
+			controlArray = [l1P, uP, r1P, l2P, dP, r2P];
+			releaseArray = [l1R, uR, r1R, l2R, dR, r2R];
+		}
+		if (mania == 3) {
+			controlArray = [a0P, a1P, a2P, a3P, a4P, a5P, a6P];
+			releaseArray = [a0R, a1R, a2R, a3R, a4R, a5R, a6R];
+		}
+		if (mania == 4) {
+			controlArray = [n0P, n1P, n2P, n3P, n4P, n5P, n6P, n7P, n8P];
+			releaseArray = [n0R, n1R, n2R, n3R, n4R, n5R, n6R, n7R, n8R];
+		}
+		if (mania == 5) {
+			controlArray = [t0P, t1P, t2P, t3P, t4P, t5P, t6P, t7P, t8P, t9P, t10P, t11P];
+			releaseArray = [t0R, t1R, t2R, t3R, t4R, t5R, t6R, t7R, t8R, t9R, t10R, t11R];
+		}
+		
+		playerStrums.forEach(function(strum:StrumNote)
+		{
+			//trace('global: $pressingKey5Global, none global: ${strum.pressingKey5}');
+			
+			strum.pressingKey5 = key5;
+		});
 		
 
 		// TO DO: Find a better way to handle controller inputs, this should work for now
@@ -4600,6 +4808,13 @@ class PlayState extends MusicBeatState
 		}
 
 		// FlxG.watch.addQuick('asdfa', upP);
+		var ankey = (upP || rightP || downP || leftP);
+		if (mania == 1) ankey = (upP || rightP || centerP || downP || leftP);
+		else if (mania == 2) ankey = (l1P || uP || r1P || l2P || dP || r2P);
+		else if (mania == 3) ankey = (a0P || a1P || a2P || a3P || a4P || a5P || a6P);
+		else if (mania == 4) ankey = (n0P || n1P || n2P || n3P || n4P || n5P || n6P || n7P || n8P);
+		else if (mania == 5) ankey = (t0P || t1P || t2P || t3P || t4P || t5P || t6P || t7P || t8P || t9P || t10P || t11P);
+
 		if (startedCountdown && !boyfriend.stunned && generatedMusic)
 		{
 			// rewritten inputs???
@@ -4626,6 +4841,184 @@ class PlayState extends MusicBeatState
 				//boyfriend.animation.curAnim.finish();
 			}
 			
+		}
+                  // ha ha
+                     // ha ha
+                        // ha ha
+				for (note in possibleNotes) 
+				{
+					if (!note.mustPress)
+					{
+						continue; //how did this get here
+					}
+					if (controlArray[note.noteData % Main.keyAmmo[mania]])
+					{ //further tweaks to the conductor safe zone offset multiplier needed.
+						if (lasthitnotetime > Conductor.songPosition - Conductor.safeZoneOffset
+							&& lasthitnotetime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.08)) //reduce the past allowed barrier just so notes close together that aren't jacks dont cause missed inputs
+						{
+							if ((note.noteData % Main.keyAmmo[mania]) == (lasthitnote % Main.keyAmmo[mania]))
+							{
+								lasthitnotetime = -999999; //reset the last hit note time
+								continue; //the jacks are too close together
+							}
+						}
+						if (note.noteStyle == 'shape' && !key5)
+						{
+							//FlxG.sound.play(Paths.sound('ANGRY'), FlxG.random.float(0.2, 0.3));
+							noteLimbo = note;
+							noteLimboFrames = 8; //note limbo, the place where notes that could've been hit go.
+							continue;
+						}
+						else if (note.noteStyle != 'shape' && key5)
+						{
+							//FlxG.sound.play(Paths.sound('ANGRY'), FlxG.random.float(0.2, 0.3));
+							noteLimbo = note;
+							noteLimboFrames = 8;
+							continue;
+						}
+						lasthitnote = note.noteData;
+						lasthitnotetime = note.strumTime;
+						goodNoteHit(note);
+					}
+				}
+				
+				if (daNote.wasGoodHit && !daNote.isSustainNote)
+				{
+					daNote.kill();
+					notes.remove(daNote, true);
+					daNote.destroy();
+				}
+			}
+			else if (!theFunne)
+			{
+				if(!inCutscene)
+					badNoteCheck(null);
+			}
+		}
+
+
+		var condition = up || right || down || left;
+		if (mania == 1) condition = up || right || center || down || left;
+		else if (mania == 2) condition = l1 || u || r1 || l2 || d || r2;
+		else if (mania == 3) condition = a0 || a1 || a2 || a3 || a4 || a5 || a6;
+		else if (mania == 4) condition = n0 || n1 || n2 || n3 || n4 || n5 || n6 || n7 || n8;
+		else if (mania == 5) condition = t0 || t1 || t2 || t3 || t4 || t5 || t6 || t7 || t8 || t9 || t10 || t11;
+		if (condition && generatedMusic)
+		{
+			notes.forEachAlive(function(daNote:Note)
+			{
+				if (daNote.canBeHit && daNote.mustPress && daNote.isSustainNote)
+				{
+					if ((daNote.noteStyle == 'shape' && key5) || (daNote.noteStyle != 'shape' && !key5))
+					{
+						if (mania == 0)
+						{
+							switch (daNote.noteData)
+							{
+								// NOTES YOU ARE HOLDING
+								case 2:
+									if (up || upHold)
+										goodNoteHit(daNote);
+								case 3:
+									if (right || rightHold)
+										goodNoteHit(daNote);
+								case 1:
+									if (down || downHold)
+										goodNoteHit(daNote);
+								case 0:
+									if (left || leftHold)
+										goodNoteHit(daNote);
+							}
+						}
+						else if (mania == 1)
+						{
+							switch (daNote.noteData)
+							{
+								// NOTES YOU ARE HOLDING
+								case 0: if (left || leftHold) goodNoteHit(daNote);
+								case 1: if (down || downHold) goodNoteHit(daNote);
+								case 2: if (center || centerHold) goodNoteHit(daNote);
+								case 3: if (up || upHold) goodNoteHit(daNote);
+								case 4: if (right || rightHold) goodNoteHit(daNote);
+							}
+						}
+						else if (mania == 2)
+						{
+							switch (daNote.noteData)
+							{
+								// NOTES YOU ARE HOLDING
+								case 0:
+									if (l1 || l1Hold)
+										goodNoteHit(daNote);
+								case 1:
+									if (u || uHold)
+										goodNoteHit(daNote);
+								case 2:
+									if (r1 || r1Hold)
+										goodNoteHit(daNote);
+								case 3:
+									if (l2 || l2Hold)
+										goodNoteHit(daNote);
+								case 4:
+									if (d || dHold)
+										goodNoteHit(daNote);
+								case 5:
+									if (r2 || r2Hold)
+										goodNoteHit(daNote);
+							}
+						}
+						else if (mania == 3)
+						{
+							switch (daNote.noteData)
+							{
+								// NOTES YOU ARE HOLDING
+								case 0: if (a0 || a0Hold) goodNoteHit(daNote);
+								case 1: if (a1 || a1Hold) goodNoteHit(daNote);
+								case 2: if (a2 || a2Hold) goodNoteHit(daNote);
+								case 3: if (a3 || a3Hold) goodNoteHit(daNote);
+								case 4: if (a4 || a4Hold) goodNoteHit(daNote);
+								case 5: if (a5 || a5Hold) goodNoteHit(daNote);
+								case 6: if (a6 || a6Hold) goodNoteHit(daNote);
+							}
+						}
+						else if (mania == 4)
+						{
+							switch (daNote.noteData)
+							{
+								// NOTES YOU ARE HOLDING
+								case 0: if (n0 || n0Hold) goodNoteHit(daNote);
+								case 1: if (n1 || n1Hold) goodNoteHit(daNote);
+								case 2: if (n2 || n2Hold) goodNoteHit(daNote);
+								case 3: if (n3 || n3Hold) goodNoteHit(daNote);
+								case 4: if (n4 || n4Hold) goodNoteHit(daNote);
+								case 5: if (n5 || n5Hold) goodNoteHit(daNote);
+								case 6: if (n6 || n6Hold) goodNoteHit(daNote);
+								case 7: if (n7 || n7Hold) goodNoteHit(daNote);
+								case 8: if (n8 || n8Hold) goodNoteHit(daNote);
+							}
+						}
+						else if (mania == 5)
+						{
+							switch (daNote.noteData)
+							{
+								// NOTES YOU ARE HOLDING
+								case 0: if (t0 || t0Hold) goodNoteHit(daNote);
+								case 1: if (t1 || t1Hold) goodNoteHit(daNote);
+								case 2: if (t2 || t2Hold) goodNoteHit(daNote);
+								case 3: if (t3 || t3Hold) goodNoteHit(daNote);
+								case 4: if (t4 || t4Hold) goodNoteHit(daNote);
+								case 5: if (t5 || t5Hold) goodNoteHit(daNote);
+								case 6: if (t6 || t6Hold) goodNoteHit(daNote);
+								case 7: if (t7 || t7Hold) goodNoteHit(daNote);
+								case 8: if (t8 || t8Hold) goodNoteHit(daNote);
+								case 9: if (t9 || t9Hold) goodNoteHit(daNote);
+								case 10: if (t10 || t10Hold) goodNoteHit(daNote);
+								case 11: if (t11 || t11Hold) goodNoteHit(daNote);
+							}
+						}
+					}
+				}
+			});
 		}
 
 		// TO DO: Find a better way to handle controller inputs, this should work for now
