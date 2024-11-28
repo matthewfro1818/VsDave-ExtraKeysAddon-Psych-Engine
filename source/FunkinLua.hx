@@ -193,7 +193,7 @@ class FunkinLua {
 		set('healthBarAlpha', ClientPrefs.healthBarAlpha);
 		set('noResetButton', ClientPrefs.noReset);
 		set('lowQuality', ClientPrefs.lowQuality);
-		set('shadersEnabled', ClientPrefs.data.shaders);
+		set('shadersEnabled', ClientPrefs.shaders);
 		set('scriptName', scriptName);
 
 		#if windows
