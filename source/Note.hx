@@ -268,8 +268,8 @@ class Note extends FlxPerspectiveSprite
 
 		this.noteData = noteData;
 
-		if ((((CharactersWith3D.contains(PlayState.SONG.player2) && !musthit) || ((CharactersWith3D.contains(PlayState.SONG.player1)
-				|| CharactersWith3D.contains(PlayState.characteroverride) || CharactersWith3D.contains(PlayState.formoverride)) && musthit))
+		if ((((CharactersWith3D.contains(PlayState.SONG.player2)) || ((CharactersWith3D.contains(PlayState.SONG.player1)
+				|| CharactersWith3D.contains(PlayState.characteroverride) || CharactersWith3D.contains(PlayState.formoverride))))
 				|| ((CharactersWith3D.contains(PlayState.SONG.player2) || CharactersWith3D.contains(PlayState.SONG.player1)) && ((this.strumTime / 50) % 20 > 10)))
 				&& this.noteStyle == 'normal')
 		{
@@ -678,36 +678,6 @@ class Note extends FlxPerspectiveSprite
 				alpha = 0.3;
 		}
 	}
-
-	public function SearchForStrum(musthit:Bool)
-	{
-		var state:PlayState = cast(FlxG.state, PlayState);
-		if (musthit)
-		{
-			state.playerStrums.forEach(function(spr:StrumNote)
-			{
-				if (spr.ID == notetolookfor)
-				{
-					GoToStrum(spr);
-					MyStrum = spr;
-					return;
-				}
-			});
-		}
-		else
-		{
-			state.dadStrums.forEach(function(spr:StrumNote)
-			{
-				if (spr.ID == notetolookfor)
-				{
-					GoToStrum(spr);
-					MyStrum = spr;
-					return;
-				}
-			});
-		}
-	}
-
 	public static function checkMustPress(mustPress:Bool):Bool 
 	{
 		if ((mustPress && !ClientPrefs.getGameplaySetting('opponentplay', false)) || (!mustPress && ClientPrefs.getGameplaySetting('opponentplay', false)))
